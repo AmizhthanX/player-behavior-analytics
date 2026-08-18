@@ -1,10 +1,10 @@
 # 🎮 Player Behavior Analytics & Churn Prediction
 
-### Data Engineering Pipeline for Multiplayer Game Server Logs
+### End-to-End Data Engineering Pipeline for Multiplayer Game Server Logs
 
 <p align="center">
 
-**Transforming raw Minecraft server activity into actionable player behavior insights**
+<strong>Transforming raw Minecraft gameplay data into meaningful player behavior insights and churn-risk analytics.</strong>
 
 </p>
 
@@ -18,111 +18,145 @@
 
 </p>
 
+<p align="center">
+
+![GitHub repo size](https://img.shields.io/github/repo-size/AmizhthanX/player-behavior-analytics)
+![GitHub stars](https://img.shields.io/github/stars/AmizhthanX/player-behavior-analytics)
+![GitHub last commit](https://img.shields.io/github/last-commit/AmizhthanX/player-behavior-analytics)
+
+</p>
+
 ---
 
 ## 📌 Overview
 
 **Player Behavior Analytics & Churn Prediction** is an end-to-end **Data Engineering and Analytics project** designed to transform raw multiplayer game-server activity into structured player intelligence.
 
-The project uses a Minecraft multiplayer server as the data source. Player activities are captured using **CoreProtect**, stored in a **SQLite database**, extracted and processed using **Python and pandas**, transformed into player-level behavioral metrics, and finally visualized through **Microsoft Power BI** dashboards.
+The project uses a Minecraft multiplayer server as the data source. Player activities are captured using **CoreProtect**, stored in a **SQLite database**, extracted and processed using **Python and pandas**, transformed into player-level behavioral metrics, and visualized using **Microsoft Power BI**.
 
-The pipeline demonstrates a complete **Extract → Transform → Load (ETL)** workflow combined with behavioral analytics and basic churn-risk prediction.
+The project demonstrates a complete **Extract → Transform → Load (ETL)** workflow combined with behavioral analytics and basic churn-risk prediction.
 
 ---
 
-## 🎯 Project Objectives
+# 🎯 Objectives
 
-The project was developed to:
+The main objectives of this project are:
 
 * Collect raw gameplay activity from a multiplayer Minecraft server
 * Capture player activities using CoreProtect
-* Store raw activity data in SQLite
+* Store raw gameplay information in SQLite
 * Extract structured datasets using Python
 * Clean and preprocess raw gameplay records
-* Transform events into meaningful player-level metrics
+* Transform raw events into player-level metrics
 * Calculate player engagement scores
-* Classify players according to their engagement level
+* Analyze player behavior patterns
+* Classify players according to engagement level
 * Identify potential rage-quit behavior
-* Categorize players according to churn risk
+* Predict player churn risk
 * Build interactive Power BI dashboards
-* Demonstrate real-world Data Engineering concepts through a gaming use case
+* Demonstrate practical Data Engineering concepts using a gaming use case
 
 ---
 
-# 🏗️ System Architecture
+# 🏗️ Data Engineering Architecture
 
-```mermaid
-flowchart LR
+The project follows a structured pipeline starting from raw Minecraft game logs and ending with analytics and Power BI visualization.
 
-    A["Minecraft<br/>Multiplayer Server"]
-    B["CoreProtect<br/>Activity Logging"]
-    C["SQLite<br/>Raw Database"]
-    D["Python<br/>Data Ingestion"]
-    E["Data Cleaning<br/>pandas"]
-    F["Data Transformation<br/>Player Metrics"]
-    G["Behavior Analytics<br/>Classification"]
-    H["Churn Prediction<br/>Risk Categorization"]
-    I["Final Analytics<br/>Dataset"]
-    J["Microsoft<br/>Power BI"]
+<p align="center">
+  <img src="assets/pipeline.png" alt="Player Behavior Analytics Data Engineering Pipeline" width="100%">
+</p>
 
-    A --> B
-    B --> C
-    C --> D
-    D --> E
-    E --> F
-    F --> G
-    G --> H
-    H --> I
-    I --> J
+### Architecture Flow
+
+```text
+┌─────────────────────┐
+│     GAME LOGS       │
+│ Minecraft Activity  │
+└──────────┬──────────┘
+           │
+           ▼
+┌─────────────────────┐
+│      DATABASE       │
+│       SQLite        │
+└──────────┬──────────┘
+           │
+           ▼
+┌─────────────────────┐
+│    ETL PROCESS      │
+│ Extract             │
+│ Transform            │
+│ Load                 │
+└──────────┬──────────┘
+           │
+           ▼
+┌─────────────────────┐
+│    DATA ANALYSIS    │
+│ Player Metrics      │
+│ Behavior Analysis   │
+└──────────┬──────────┘
+           │
+           ▼
+┌─────────────────────┐
+│     PREDICTION      │
+│    Churn Risk       │
+└──────────┬──────────┘
+           │
+           ▼
+┌─────────────────────┐
+│      POWER BI       │
+│     Dashboard       │
+└─────────────────────┘
 ```
 
-### Pipeline Flow
+---
+
+# 🔄 Complete ETL Pipeline
 
 ```text
 Minecraft Server
        │
        ▼
- CoreProtect Plugin
+CoreProtect Plugin
        │
        ▼
- SQLite Database
+SQLite Database
        │
        ▼
- Data Ingestion
+Data Ingestion
        │
        ▼
- Data Cleaning
+Data Cleaning
        │
        ▼
- Data Transformation
+Data Transformation
        │
        ▼
- Player Behavior Analytics
+Behavior Analytics
        │
        ▼
- Churn Risk Prediction
+Churn Prediction
        │
        ▼
- Final Analytics Dataset
+Final Analytics Dataset
        │
        ▼
- Power BI Dashboards
+Power BI Dashboard
 ```
 
 ---
 
 # ⚙️ Technology Stack
 
-| Technology             | Purpose                          |
-| ---------------------- | -------------------------------- |
-| **PaperMC**            | Multiplayer Minecraft server     |
-| **CoreProtect**        | Player activity logging          |
-| **SQLite**             | Raw gameplay data storage        |
-| **Python 3**           | Data engineering and analytics   |
-| **sqlite3**            | SQLite database connectivity     |
-| **pandas**             | Data cleaning and transformation |
-| **CSV**                | Intermediate data storage        |
-| **Microsoft Power BI** | Interactive visualization        |
+| Technology             | Purpose                                                |
+| ---------------------- | ------------------------------------------------------ |
+| **PaperMC**            | High-performance Minecraft server software             |
+| **CoreProtect**        | Captures and stores player activity logs               |
+| **SQLite**             | Raw gameplay database                                  |
+| **Python 3**           | Data ingestion, cleaning, transformation and analytics |
+| **sqlite3**            | Python interface for SQLite                            |
+| **pandas**             | Data manipulation, cleaning and metric calculation     |
+| **CSV**                | Intermediate data storage                              |
+| **Microsoft Power BI** | Interactive analytics and visualization                |
 
 ---
 
@@ -130,6 +164,10 @@ Minecraft Server
 
 ```text
 player-behavior-analytics/
+│
+├── assets/
+│   ├── pipeline.png
+│   └── Dashboard.jpeg
 │
 ├── docs/
 │   └── Final Report.pdf
@@ -154,62 +192,105 @@ player-behavior-analytics/
 
 ---
 
-# 🔄 ETL Pipeline
+# 🧩 Pipeline Components
 
-## 1. Data Collection
+## 1. Data Source — Minecraft Server
 
-Gameplay activity is generated by players interacting with the Minecraft server.
+The project uses a multiplayer Minecraft server as the source of gameplay data.
 
-CoreProtect records activities including:
+Players generate different types of activity, including:
 
-* Player sessions
+* Login and logout sessions
 * Chat messages
 * Block breaking
 * Block placement
-* Gameplay interactions
+* Other recorded gameplay interactions
 
 ---
 
-## 2. Data Ingestion
+## 2. Data Collection — CoreProtect
 
-The `ingest.py` script connects to the CoreProtect SQLite database and extracts the required tables.
+**CoreProtect** is used to capture detailed player activity from the Minecraft server.
 
-### Input
+The project report identifies the following recorded information:
+
+```text
+Player Sessions
+Chat Messages
+Block Break Events
+Block Place Events
+Gameplay Interactions
+```
+
+The captured information is stored in the CoreProtect SQLite database.
+
+---
+
+# 🗄️ Raw Database
+
+The CoreProtect database is stored as:
 
 ```text
 plugins/CoreProtect/database.db
 ```
 
-### Extracted datasets
+The project extracts three primary datasets:
+
+| Dataset        | Description                  |
+| -------------- | ---------------------------- |
+| `sessions.csv` | Player login/session records |
+| `chat.csv`     | Player chat messages         |
+| `blocks.csv`   | Block break/place activity   |
+
+---
+
+# 📥 Data Ingestion
+
+The `scripts/ingest.py` program connects to the SQLite database and extracts the required CoreProtect tables.
+
+### CoreProtect tables
 
 ```text
-sessions.csv
-chat.csv
-blocks.csv
+co_session
+co_chat
+co_block
 ```
 
-The ingestion process uses:
+### Process
 
-```python
+```text
+SQLite Database
+      │
+      ├── co_session ──→ sessions.csv
+      │
+      ├── co_chat ─────→ chat.csv
+      │
+      └── co_block ────→ blocks.csv
+```
+
+### Technologies
+
+```text
+Python
 sqlite3
 pandas
 ```
 
 ---
 
-## 3. Data Cleaning
+# 🧹 Data Cleaning
 
-The `clean.py` script prepares the extracted datasets for analysis.
+The `scripts/clean.py` program prepares the extracted data for analytics.
 
-Cleaning operations include:
+The cleaning stage performs:
 
-* Removing null records
-* Removing duplicate records
-* Removing irrelevant columns
-* Filtering empty chat messages
-* Standardizing the required dataset structure
+* Null-value removal
+* Duplicate removal
+* Irrelevant-column removal
+* Empty-message filtering
+* Basic dataset standardization
 
-### Output
+### Clean datasets
 
 ```text
 clean_sessions.csv
@@ -219,43 +300,64 @@ clean_blocks.csv
 
 ---
 
-# 📊 Player Metrics
+# 🔧 Data Transformation
 
-The transformation stage converts raw gameplay events into meaningful player-level metrics.
+The transformation stage converts raw gameplay events into player-level metrics.
+
+The following metrics are generated:
+
+```text
+Session Count
+Chat Count
+Block Activity
+Engagement Score
+Rage Quit Flag
+```
+
+---
+
+# 📊 Player Metrics
 
 ## Session Count
 
-Measures how many times a player joined the server.
+Measures the total number of times a player logged into the Minecraft server.
 
 ```text
 Session Count = Number of login events
 ```
 
+A higher session count indicates more frequent server visits.
+
 ---
 
-## Chat Count
+## 💬 Chat Count
 
-Measures the number of chat messages sent by each player.
+Measures the total number of chat messages sent by a player.
 
 ```text
 Chat Count = Number of chat events
 ```
 
+Chat activity represents a player's social engagement with the server community.
+
 ---
 
-## Block Activity
+## ⛏️ Block Activity
 
-Measures total block-related gameplay activity.
+Measures the total number of block-related gameplay actions.
 
 ```text
-Block Activity = Block Breaks + Block Placements
+Block Activity =
+Block Breaks + Block Placements
 ```
+
+This represents direct interaction with the Minecraft game world.
 
 ---
 
-## Engagement Score
+# 🧮 Engagement Score
 
-A custom engagement score is calculated for every player.
+The project uses a custom weighted engagement formula.
 
 ```text
 Engagement Score =
@@ -266,49 +368,67 @@ Engagement Score =
 (Block Activity × 3)
 ```
 
+### Weighting
+
+| Metric         | Weight |
+| -------------- | -----: |
+| Session Count  |     ×2 |
+| Chat Count     |     ×1 |
+| Block Activity |     ×3 |
+
 Block activity receives the highest weight because it represents direct gameplay interaction.
 
 ---
 
-## Rage Quit Detection
+# 🚪 Rage Quit Detection
 
-Players with fewer than two sessions are flagged as potential rage quitters.
+A player is flagged as a potential rage quitter when:
 
 ```text
-Rage Quit Flag = TRUE
-if Session Count < 2
+Session Count < 2
 ```
 
-This metric is intended to identify players who joined the server but did not return frequently.
+The resulting field is:
+
+```text
+rage_quit_flag
+```
+
+Possible values:
+
+```text
+TRUE
+FALSE
+```
+
+This is intended to identify players who joined the server but did not return frequently.
 
 ---
 
 # 👥 Player Behavior Classification
 
-Players are classified using their engagement score.
+Players are classified based on their engagement score.
 
-| Engagement Score | Player Type      |
-| ---------------: | ---------------- |
-|          `≥ 150` | 🔥 Highly Active |
-|       `80 – 149` | 🟢 Active        |
-|        `30 – 79` | 🟡 Casual        |
-|           `< 30` | ⚪ Inactive       |
+| Engagement Score | Player Type       |
+| ---------------: | ----------------- |
+|          `≥ 150` | **Highly Active** |
+|       `80 – 149` | **Active**        |
+|        `30 – 79` | **Casual**        |
+|           `< 30` | **Inactive**      |
 
-### Player Categories
+### Highly Active
 
-**Highly Active**
+Players with very high engagement who participate frequently.
 
-Players with very high engagement who frequently participate in the server.
-
-**Active**
+### Active
 
 Regular players who consistently interact with the server.
 
-**Casual**
+### Casual
 
-Players with occasional or limited activity.
+Players with below-average or occasional activity.
 
-**Inactive**
+### Inactive
 
 Players with very low or zero engagement.
 
@@ -316,51 +436,43 @@ Players with very low or zero engagement.
 
 # 📉 Churn Risk Prediction
 
-The project implements a **basic rule-based churn prediction system**.
+The project implements a basic rule-based churn prediction engine.
 
-The system identifies players who may be at risk of stopping their gameplay activity.
-
-### Risk Logic
+### High Risk
 
 ```text
-IF
 Session Count < 2
 AND
 Engagement Score < 20
-
-→ High Risk
 ```
 
+### Medium Risk
+
 ```text
-IF
 Engagement Score < 50
-
-→ Medium Risk
 ```
+
+### Low Risk
 
 ```text
-Otherwise
-
-→ Low Risk
+All other players
 ```
 
-### Why Churn Prediction?
+The purpose of this analysis is to identify players who may be at risk of stopping their gameplay activity.
 
-Identifying low-engagement players allows server administrators to understand which players may require additional engagement or retention strategies.
-
-> Note: This project implements a rule-based predictive approach rather than a trained machine-learning model.
+> **Note:** This project implements rule-based churn prediction. It does not use a trained machine-learning model.
 
 ---
 
-# 📁 Final Analytics Dataset
+# 📦 Final Analytics Dataset
 
-The final pipeline produces:
+After transformation and analytics, the project generates:
 
 ```text
 final_analytics.csv
 ```
 
-The dataset consolidates the main player-level analytics:
+The final dataset contains player-level information including:
 
 ```text
 user
@@ -373,29 +485,35 @@ player_type
 churn_risk
 ```
 
-This dataset becomes the primary input for Power BI.
+This dataset becomes the input for Power BI.
 
 ---
 
-# 📈 Power BI Dashboards
+# 📈 Power BI Dashboard
 
-The project includes interactive Power BI analytics focused on player behavior.
+The final analytics dataset is visualized using Microsoft Power BI.
 
-### Player Engagement Dashboard
+<p align="center">
+  <img src="assets/Dashboard.jpeg" alt="Player Behavior Analytics Power BI Dashboard" width="100%">
+</p>
 
-Provides a ranked view of players according to engagement score.
+The dashboard provides a consolidated view of player activity, engagement, behavior and churn risk.
 
-### Churn Risk Dashboard
+---
 
-Highlights players categorized into different churn-risk levels.
+## 📊 Dashboard Components
 
-### Session Analytics Dashboard
+### Engagement Bar Chart
 
-Shows login frequency and session activity patterns.
+Ranks players according to their engagement score.
 
-### Player Distribution Dashboard
+### Rage Quit Table
 
-Visualizes the distribution of:
+Displays player-level rage-quit information and session activity.
+
+### Player Type Donut Chart
+
+Shows the distribution of:
 
 ```text
 Highly Active
@@ -404,39 +522,112 @@ Casual
 Inactive
 ```
 
----
+### Churn Risk Chart
 
-# 🖥️ Dashboard Preview
+Visualizes players according to churn-risk categories.
 
-The project report contains the Power BI dashboard output showing:
+### Session Analysis
 
-* Total player count
-* Engagement ranking
-* Rage-quit information
-* Player type distribution
-* Churn-risk visualization
-* Session analysis
+Displays session activity patterns.
 
-The dashboard screenshot is included in the final project report.
+### Total Players
+
+Shows the total number of players included in the analytics dataset.
 
 ---
 
-# 🧠 Data Engineering Concepts Demonstrated
+# 🧠 Data Engineering Concepts
 
-This project applies several practical Data Engineering concepts:
+This project demonstrates multiple practical Data Engineering concepts.
 
-| Concept                  | Implementation                               |
-| ------------------------ | -------------------------------------------- |
-| **Data Collection**      | CoreProtect gameplay logging                 |
-| **Data Ingestion**       | SQLite → CSV using Python                    |
-| **ETL Pipeline**         | Complete Extract → Transform → Load workflow |
-| **Data Cleaning**        | Null and duplicate removal                   |
-| **Data Transformation**  | Player-level metric generation               |
-| **Database Storage**     | SQLite                                       |
-| **Intermediate Storage** | CSV                                          |
-| **Behavioral Analytics** | Player classification                        |
-| **Predictive Analytics** | Rule-based churn risk                        |
-| **Data Visualization**   | Power BI dashboards                          |
+| Data Engineering Concept | Implementation                 |
+| ------------------------ | ------------------------------ |
+| **Data Collection**      | CoreProtect gameplay logging   |
+| **Data Ingestion**       | SQLite database extraction     |
+| **ETL Pipeline**         | Extract → Transform → Load     |
+| **Data Cleaning**        | Null and duplicate removal     |
+| **Data Transformation**  | Player-level metric generation |
+| **Database Storage**     | SQLite                         |
+| **Intermediate Storage** | CSV                            |
+| **Behavioral Analytics** | Player classification          |
+| **Predictive Analytics** | Rule-based churn risk          |
+| **Data Visualization**   | Power BI dashboards            |
+
+---
+
+# 🐍 Python Scripts
+
+## `ingest.py`
+
+Extracts raw data from CoreProtect SQLite.
+
+```text
+SQLite
+   ↓
+sessions.csv
+chat.csv
+blocks.csv
+```
+
+---
+
+## `clean.py`
+
+Cleans and prepares raw datasets.
+
+```text
+Raw CSV
+   ↓
+Clean CSV
+```
+
+---
+
+## `transform.py`
+
+Creates player-level metrics.
+
+```text
+Clean Data
+   ↓
+Player Metrics
+```
+
+---
+
+## `analytics.py`
+
+Performs:
+
+* Player classification
+* Churn-risk prediction
+* Final analytics generation
+
+```text
+Player Metrics
+      ↓
+Behavior Classification
+      ↓
+Churn Prediction
+      ↓
+final_analytics.csv
+```
+
+---
+
+## `run_pipeline.py`
+
+Runs the complete pipeline automatically.
+
+```bash
+python scripts/run_pipeline.py
+```
+
+---
+
+## `generate_sample_data.py`
+
+Generates sample gameplay datasets for development and demonstration when the original CoreProtect database is unavailable.
 
 ---
 
@@ -449,11 +640,16 @@ Install:
 * Python 3
 * pip
 * pandas
-* A CoreProtect SQLite database for real server data
+
+For real server data, you also need:
+
+* PaperMC server
+* CoreProtect
+* CoreProtect SQLite database
 
 ---
 
-## 1. Clone the Repository
+# 1️⃣ Clone the Repository
 
 ```bash
 git clone https://github.com/AmizhthanX/player-behavior-analytics.git
@@ -465,7 +661,7 @@ cd player-behavior-analytics
 
 ---
 
-## 2. Install Dependencies
+# 2️⃣ Install Dependencies
 
 ```bash
 pip install -r requirements.txt
@@ -473,9 +669,9 @@ pip install -r requirements.txt
 
 ---
 
-## 3. Using Real CoreProtect Data
+# 3️⃣ Using Real CoreProtect Data
 
-Place your CoreProtect database at:
+Place the CoreProtect database at:
 
 ```text
 plugins/CoreProtect/database.db
@@ -487,29 +683,29 @@ Then execute:
 python scripts/run_pipeline.py
 ```
 
-The pipeline automatically performs:
+The pipeline performs:
 
 ```text
-SQLite
-  ↓
-CSV Extraction
-  ↓
+SQLite Database
+       ↓
+Data Ingestion
+       ↓
 Data Cleaning
-  ↓
-Metric Transformation
-  ↓
-Behavior Classification
-  ↓
+       ↓
+Data Transformation
+       ↓
+Behavior Analytics
+       ↓
 Churn Prediction
-  ↓
-Final Analytics CSV
+       ↓
+Final Analytics Dataset
 ```
 
 ---
 
-# 🧪 Running Without the Minecraft Database
+# 🧪 Running Without a Minecraft Database
 
-A sample-data generator is included for development and demonstration.
+A sample-data generator is included.
 
 Run:
 
@@ -531,15 +727,13 @@ python scripts/transform.py
 python scripts/analytics.py
 ```
 
-Or run the complete pipeline after generating sample data.
-
-This allows the repository to demonstrate the analytics workflow without exposing private/raw Minecraft server data.
+This makes it possible to demonstrate the project without exposing private Minecraft server data.
 
 ---
 
-# 📦 Output Files
+# 📁 Generated Data
 
-After processing, the project generates:
+After running the pipeline, the expected structure is:
 
 ```text
 data/
@@ -563,16 +757,20 @@ data/
 
 # 📄 Project Report
 
-The complete project report is available here:
+The complete academic project report is available in:
 
-**[📑 View Final Project Report](docs/Final%20Report.pdf)**
+```text
+docs/Final Report.pdf
+```
 
-The report covers:
+### 📑 [View Final Project Report](docs/Final%20Report.pdf)
+
+The report includes:
 
 * Introduction
 * Objectives
 * System Architecture
-* Implementation
+* Implementation Steps
 * Data Ingestion
 * Data Cleaning
 * Data Transformation
@@ -582,9 +780,25 @@ The report covers:
 * Player Metrics
 * Technologies Used
 * Data Engineering Concepts
-* Results
-* Learnings
+* Results and Dashboards
+* Learnings and Outcomes
 * Conclusion
+
+---
+
+# 📸 Project Visuals
+
+## Data Engineering Pipeline
+
+<p align="center">
+  <img src="assets/pipeline.png" alt="Data Engineering Pipeline" width="100%">
+</p>
+
+## Power BI Analytics Dashboard
+
+<p align="center">
+  <img src="assets/Dashboard.jpeg" alt="Power BI Player Behavior Analytics Dashboard" width="100%">
+</p>
 
 ---
 
@@ -593,9 +807,10 @@ The report covers:
 **Department of Computer Science and Engineering**
 
 **Subject:** Data Engineering
+
 **Year:** II Year – B Section
 
-### Team
+### Team Members
 
 | Member                | Role        |
 | --------------------- | ----------- |
@@ -606,7 +821,7 @@ The report covers:
 
 ---
 
-# 📚 Key Learning Outcomes
+# 📚 Learning Outcomes
 
 Through this project, the team gained practical experience in:
 
@@ -619,31 +834,31 @@ Through this project, the team gained practical experience in:
 * Data transformation
 * Player behavior analytics
 * Churn-risk analysis
-* Power BI dashboard development
+* Power BI dashboard creation
 * End-to-end Data Engineering workflows
 
 ---
 
 # 🔮 Future Improvements
 
-The current project provides a strong foundation for extending the analytics system.
+The current system provides a foundation that can be extended into a more advanced real-time analytics platform.
 
 Potential improvements include:
 
 * Real-time gameplay analytics
 * Automated data ingestion
 * Scheduled ETL pipelines
-* Cloud-based data storage
+* Cloud database integration
 * Streaming gameplay events
 * Advanced player segmentation
 * Machine-learning-based churn prediction
-* Player lifetime value analysis
-* Automated retention recommendations
+* Player lifetime-value analysis
+* Automated player-retention recommendations
 * Real-time Power BI reporting
 
 ---
 
-# ⚠️ Data & Privacy
+# 🔐 Data & Privacy
 
 Raw Minecraft server databases may contain server-specific information and should not be committed to a public repository.
 
@@ -653,31 +868,37 @@ Sensitive or private server data should remain outside version control.
 
 ---
 
-# 📌 Project Highlights
+# ⭐ Project Highlights
 
 ```text
-✔ End-to-end ETL pipeline
-✔ Minecraft gameplay data engineering
+✔ End-to-end Data Engineering pipeline
+✔ Minecraft gameplay data collection
+✔ CoreProtect activity logging
 ✔ SQLite database ingestion
-✔ Python + pandas processing
+✔ Python + pandas ETL
+✔ Data cleaning and transformation
 ✔ Player engagement scoring
 ✔ Behavioral classification
+✔ Rage-quit detection
 ✔ Churn-risk prediction
 ✔ Power BI visualization
 ✔ Reproducible analytics workflow
-✔ Sample-data generation for demonstration
+✔ Sample-data generation
 ```
 
 ---
 
 # 👨‍💻 Author
 
-### S. Amizhthan
+## S. Amizhthan
 
-Computer Science Engineering Student
-Data Engineering | Python | Data Analytics | Power BI | Web Development
+**Computer Science Engineering Student**
 
-**GitHub:** [@AmizhthanX](https://github.com/AmizhthanX)
+**Data Engineering • Python • Data Analytics • Power BI • Software Development**
+
+### GitHub
+
+[@AmizhthanX](https://github.com/AmizhthanX)
 
 ---
 
@@ -685,12 +906,18 @@ Data Engineering | Python | Data Analytics | Power BI | Web Development
 
 ### ⭐ If you found this project interesting, consider starring the repository.
 
-**Built with Python, Data Engineering, and a little Minecraft.**
+</p>
+
+<p align="center">
+
+<strong>Built with Python, Data Engineering, Power BI, and Minecraft.</strong>
 
 </p>
 
 <p align="center">
 
-`Player Behavior Analytics • ETL • Python • SQLite • Power BI`
+`PLAYER BEHAVIOR ANALYTICS`
+
+`ETL • PYTHON • SQLITE • POWER BI • DATA ENGINEERING`
 
 </p>
